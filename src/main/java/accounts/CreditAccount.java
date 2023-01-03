@@ -18,10 +18,11 @@ public class CreditAccount extends Account {
         }
     }
     //установить сумму выплат за использование кредита, days-дни использования
-    public void setSumPercent(int days,long percent){
+    public long setSumPercent(int days,long percent){
         if (balanse<0){
             sumPersent=(Math.abs(balanse)*percent/100)*days/365;
         }
+        return sumPersent;
     }
     public long getSumPersent() {
         return sumPersent;

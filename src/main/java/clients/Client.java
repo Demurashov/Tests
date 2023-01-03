@@ -2,6 +2,7 @@ package clients;
 import accounts.Account;
 import accounts.Account;
 import accounts.MoneyTarget;
+import jdk.jfr.StackTrace;
 
 public class Client implements MoneyTarget {
     //Account newAcc;//экземпляр нового счета
@@ -52,7 +53,13 @@ public class Client implements MoneyTarget {
         return name;
     }
     public Account getAcc(int namber){
-        return arrObj[namber];
+        try{
+           return arrObj[namber];}
+        catch (ArrayIndexOutOfBoundsException exception)
+        {
+            System.out.println("Превышено количество доступных аккаунтов");
+        }
+    return null;
     }
 
     public void showAccounts(){
